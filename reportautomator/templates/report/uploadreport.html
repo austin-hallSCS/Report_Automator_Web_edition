@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Upload Device Report{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <form action="{{ url_for('report.viewexcel')}}" method="post" enctype="multipart/form-data">
+        <input type="file" name="file"
+            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+        <input type="submit" value="Upload">
+    </form>
+{% endblock %}

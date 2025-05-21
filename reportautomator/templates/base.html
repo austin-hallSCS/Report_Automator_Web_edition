@@ -1,0 +1,21 @@
+<!doctype html>
+<title>{%block title %}{% endblock %} - Report Automator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<nav>
+    <h1>SCS Technology</h1>
+</nav>
+
+<section class="content">
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    {% block content %}{% endblock %}
+</section>
+
+<section class="footer">
+    <footer>
+        <p>Author: Austin Hall</p>
+        <p>Sumner County Schools Technology Dept.</p>
+    </footer>
+</section>
