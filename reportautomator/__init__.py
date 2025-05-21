@@ -2,8 +2,10 @@ import os
 from dotenv import load_dotenv
 from flask import Flask
 
+# Load the environment file
 load_dotenv()
 
+# Configure the app
 def create_app():
     app = Flask(__name__)
     app.config.from_prefixed_env()
