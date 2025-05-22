@@ -2,9 +2,10 @@ import pandas as pd
 import os
 import time
 from datetime import datetime as dt, timedelta
-class Report:
-    def __init__(self):
-        self.dataFrame = self.prepare_Spreadsheet(self.inFile.filePath)
+class ReportFrame:
+    def __init__(self, filePath):
+        self.inFile = filePath
+        self.dataFrame = self.prepare_Spreadsheet(self.inFile)
 
     # Loads excel file as a dataframe and formats the data.
     @staticmethod

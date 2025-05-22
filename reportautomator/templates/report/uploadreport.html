@@ -5,9 +5,8 @@
 {% endblock %}
 
 {% block content %}
-    <form action="{{ url_for('report.viewexcel')}}" method="post" enctype="multipart/form-data">
-        <input type="file" name="file"
-            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
         <input type="submit" value="Upload">
     </form>
 {% endblock %}
