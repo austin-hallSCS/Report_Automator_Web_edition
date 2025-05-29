@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <h1>{% block title %}Page not found{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <h1>Error 404 - Page not found</h1>
+    <p>Oops... looks like that page doesn't exist. Please double check the URL.</p>
+    <a href = "{{ url_for('report.index') }}">Go Home</a>
+{% endblock %}

@@ -10,6 +10,7 @@ class ReportFrame:
     # Loads excel file as a dataframe and formats the data.
     @staticmethod
     def prepare_Spreadsheet(file):
+
         # Load the excel file as a dataframe
         df = pd.read_excel(file, skiprows=4)
         
@@ -29,6 +30,9 @@ class ReportFrame:
                 print(f"There was an error removing one or more unused columns:\n{e}")
 
         # Add new column at the end for warranty dates
-        df['Warranty End Date'] = ''
+        df["WarrantyEndDate"] = ''
+
+        # Add a column for the "code" (last 3 of serial number)
+        df["Code"] = df["Serial Number"].str[-3:]
 
         return df

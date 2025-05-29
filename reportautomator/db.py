@@ -17,12 +17,14 @@ def close_db(e=None):
 def init_db_command():
     db = get_db()
 
+    # Initalize schools DB
     with current_app.open_resource('schema.sql') as f:
         db.executescript(f.read().decode('utf-8'))
 
+    # Initialize Dell Key DB
     df = pd.read_csv('reportautomator/static/Dell_Key.csv')
     df.columns = df.columns.str.strip()
-    df.to_sql('dellkey', db, if_exists='append', index=False)
+    df.to_sql('dellkey', db, if_exists='replace', index=False)
 
     click.echo("You successfully initialized the database!")
 

@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block header %}
-    <h1>{% block title %}Upload Device Report{% endblock %}</h1>
+    <h1>{% block title %}Upload Device Report for {{ school }}{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
+    <p>Here you can upload a .xlsx report file straight from Configuration Manager. Make sure it's a freshly downloaded file with no edits to it, otherwise it could throw off the formatting.</p>
     <form method="post" enctype="multipart/form-data">
         <input type="file" name="file">
         <input type="submit" value="Upload">

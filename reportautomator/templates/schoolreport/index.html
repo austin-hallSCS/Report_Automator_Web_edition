@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}View Devices{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <thead class="table__header">
+            <tr>
+                <th>Computer Name</th>
+                <th>Serial Number</th>
+                <th>Warranty End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for computer in report %}
+            <tr class="table__row">
+                <td class="table__cell">{{ computer['computername'] }}</td>
+                <td>{{ computer['serialnumber'] }}</td>
+                <td>{{ computer['warrantyenddate'].strftime(('%m/%d/%Y')) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
