@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block content %}
-    <p>Here you can upload a .xlsx report file straight from Configuration Manager. Make sure it's a freshly downloaded file with no edits to it, otherwise it could throw off the formatting.</p>
+    <p>Here you can upload a .xlsx report file straight from Configuration Manager. If a report has been uploaded previously, this will overwrite that one.</p>
+    <p>Make sure it's a freshly downloaded file with no edits to it, otherwise it could throw off the formatting.</p>
+    
     <form method="post" enctype="multipart/form-data">
         <input type="file" name="file">
         <input type="submit" value="Upload">

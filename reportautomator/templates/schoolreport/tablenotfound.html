@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}No Exising Report for {{ school }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <p>Uh oh! Looks like there's not any reports that have been submitted for {{ school }}.</p>
+    <a href="{{ link }}">Upload one to get started.</a>
+{% endblock %}

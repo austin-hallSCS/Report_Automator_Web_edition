@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}View Devices{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <thead class="table__header">
+            <tr>
+                <th>Computer Name</th>
+                <th>Top Console User</th>
+                <th>Operating System</th>
+                <th>Serial Number</th>
+                <th>Asset Tag</th>
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>Warranty End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for computer in report %}
+            <tr class="table__row">
+                <td>{{ computer['computername'] }}</td>
+                <td>{{ computer['topconsoleuser'] }}</td>
+                <td>{{ computer['operatingsystem'] }}</td>
+                <td>{{ computer['serialnumber'] }}</td>
+                <td>{{ computer['assettag'] }}</td>
+                <td>{{ computer['manufacturer'] }}</td>
+                <td>{{ computer['model'] }}</td>
+                <td>{% if computer['warrantyenddate'] != None %}{{ computer['warrantyenddate'].strftime(('%m/%d/%Y')) }}
+                    {% elif computer['warrantyenddate'] == None %}{{ computer['warrantyenddate'] }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

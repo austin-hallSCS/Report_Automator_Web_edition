@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Viewing {{ filename }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <body>
+        <form method="post">
+            <input type="submit" value="Upload Report">
+        </form>
+        {{ data.to_html(classes='table', index=False, index_names=False, columns=["Computer Name", "Top Console User", "Operating System", "Serial Number", "Asset Tag", "Manufacturer", "Model"], na_rep="") | safe }}
+    </body>
+{% endblock %}

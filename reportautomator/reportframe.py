@@ -3,13 +3,13 @@ import os
 import time
 from datetime import datetime as dt, timedelta
 class ReportFrame:
-    def __init__(self, filePath):
+    def __init__(self, filePath, schoolCode):
         self.inFile = filePath
+        self.schoolCode = schoolCode
         self.dataFrame = self.prepare_Spreadsheet(self.inFile)
 
     # Loads excel file as a dataframe and formats the data.
-    @staticmethod
-    def prepare_Spreadsheet(file):
+    def prepare_Spreadsheet(self, file):
 
         # Load the excel file as a dataframe
         df = pd.read_excel(file, skiprows=4)
@@ -29,10 +29,10 @@ class ReportFrame:
             except KeyError as e:
                 print(f"There was an error removing one or more unused columns:\n{e}")
 
-        # Add new column at the end for warranty dates
-        df["WarrantyEndDate"] = ''
-
         # Add a column for the "code" (last 3 of serial number)
         df["Code"] = df["Serial Number"].str[-3:]
+
+        # Add in the column for the school code
+        df["schoolcode"] = self.schoolCode
 
         return df
