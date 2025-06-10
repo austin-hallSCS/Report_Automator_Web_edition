@@ -13,7 +13,7 @@ from flask import (
     url_for,
     session
 )
-from .reportframe import ReportFrame
+from ..reportframe import ReportFrame
 from reportautomator.db import get_db
 
 class SchoolReportBlueprint:

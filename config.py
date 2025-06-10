@@ -11,6 +11,8 @@ class Config:
     TEMPLATES_FOLDER = ".\\reportautomator\\templates"
     UPLOAD_FOLDER = r".\reportautomator\temp"
     DATABASE = "reportautomator.sqlite"
+    SQL_ALCHEMY_DATABASE_URI = f"sqlite://{DATABASE}"
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
     SCHOOLS = ("BBE", "BES", "BHS", "BPE", "CRE", "EBW", "EMS", "GBE", "GES", "GHS", "GWE", "HBW", "HES", "HHS", "HMS", "ILE", "JAE",
                "JWW", "KDDC", "LCE", "LCH", "LCM", "LPE", "MCE", "MES", "MHM", "MTC", "NBE", "NSE", "OES", "PEM", "PGE", "PHS", "PWM",
                "RSM", "RTF", "SCE", "SCH", "SCM", "SMS", "TWH", "UES", "VSE", "WBE", "WES", "WFE", "WHE", "WHH", "WHM", "WHS", "WMS",

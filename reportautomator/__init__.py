@@ -14,13 +14,8 @@ def create_app():
     from . import db
     db.init_app(app)
 
-    """
-    from . import report
-    app.register_blueprint(report.bp)
-    """
-
     with app.app_context():
-        from . import schoolreport
+        from .controllers import reportcontroller
 
         database = db.get_db()
         c = database.cursor()
@@ -29,7 +24,7 @@ def create_app():
         for (Name, Code) in c:
             schools[Name] = Code
         
-        schoolObjects = {name : schoolreport.SchoolReportBlueprint(name, schools[name]) for name in schools}
+        schoolObjects = {name : reportcontroller.SchoolReportBlueprint(name, schools[name]) for name in schools}
 
         for object in schoolObjects:
             schoolObjects[object].register_blueprint()
